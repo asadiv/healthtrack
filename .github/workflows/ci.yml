@@ -41,8 +41,8 @@ jobs:
       - name: run container
         run: |
           docker run -d -p 5000:5000 --name patient-api1 patient-api:${{ github.sha }}
-          sleep 4
-          curl http://localhost:5000/api/health
+          sleep 3
+          curl --fail http://localhost:5000/api/health
           docker stop patient-api1
           docker rm patient-api1
 
